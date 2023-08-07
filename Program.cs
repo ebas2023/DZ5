@@ -1,20 +1,28 @@
-﻿/*Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных индексах.
-[3, 7, 23, 12] -> 19
-[-4, -6, 89, 6] -> 0*/
+﻿/*Задача 38: Задайте массив целых чисел. Найдите разницу между максимальным и минимальным элементов массива.
+[3, 4, 1, 77, 65] => 77 - 1 = 76*/
 
-int[] array = GetArray(4, -98, 98);
+int[] array = GetArray(4, 1, 98);
 int c = 0;
 Console.WriteLine($"[{String.Join(",", array)}]");
-
+int max=array[0];
+int min=array[0];
 for (int z = 0; z < 4; z++)
 {
-    if (z % 2 != 0)
+    if (array[z] >max)
     {
-        c=c+array[z];
+        max=array[z];
     }
-}
-
-Console.WriteLine($" {c} сумму элементов, стоящих на нечётных индексах");
+   
+     if (array[z] <min)
+    {
+        min=array[z];
+    }
+   
+ }
+c=max-min;
+Console.WriteLine($" {max} max");
+Console.WriteLine($" {min} min");
+Console.WriteLine($" {c} разницу между максимальным и минимальным элементов массива");
 
 int[] GetArray(int size, int minValue, int maxValue)
 {
